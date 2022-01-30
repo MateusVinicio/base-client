@@ -92,7 +92,7 @@ $(document).ready(function () {
 			},
 			{
 				"render": function (data, type, row) {
-					return row.id_user;
+					return row.name_user;
 				},
 				"targets": 6,
 			},

@@ -77,6 +77,16 @@ class Crud_model extends CI_Model
         }
     }
 
+    public function getSelect($sql)
+    {
+        try{
+            return $this->db->query($sql)->result();
+        
+        }catch(\Exception $e){
+            return FALSE;
+        }
+    }
+
     public function countAll($table)
     {
         try

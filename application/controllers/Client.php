@@ -60,7 +60,12 @@ class Client extends CI_Controller {
 	{
 		checkAJax($this->input->is_ajax_request());
 
-		$data = $this->datatable_lib->datatable('client');
+		$limit = $this->input->post('length');
+        $start =  $this->input->post('start');
+
+		$sql = "SELECT c.*, u.name as name_user FROM client c JOIN user u ON u.id = c.id_user LIMIT $start, $limit";
+
+		$data = $this->datatable_lib->datatable('client', $sql);
 		echo datatableResponse($data);
 	}
     

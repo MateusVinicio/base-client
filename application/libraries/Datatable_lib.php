@@ -11,12 +11,16 @@ class Datatable_lib
         $this->CI->load->model('crud_model', 'crud');
     }
 
-    public function datatable($table)
+    public function datatable($table, $sql = NULL)
     {
         $limit = $this->CI->input->post('length');
         $start =  $this->CI->input->post('start');
 
-        $data = $this->CI->crud->get($table, $limit, $start);
+        if($sql == null)
+            $data = $this->CI->crud->get($table, $limit, $start);
+        else
+            $data = $this->CI->crud->getSelect($sql);
+
         $countData = $this->CI->crud->countAll($table);
 
         $output = array(
