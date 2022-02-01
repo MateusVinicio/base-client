@@ -86,7 +86,7 @@ $(document).ready(function () {
 			},
 			{
 				"render": function (data, type, row) {
-					return row.type;
+					return row.type == 0 ? "Física" : "Jurídica";
 				},
 				"targets": 5,
 			},
